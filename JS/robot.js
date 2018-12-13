@@ -9,11 +9,11 @@ function Robot(x, y, vitesse, couleur) {
     this.eveille = false;
 }
 
-Robot.prototype.dessin(ctx, dx, dy) = function(){
+Robot.prototype.dessin = function(ctx, dx, dy){
 
 };
 
-Robot.prototype.perception(Grille)        = function(){
+Robot.prototype.perception        = function(Grille){
 
     var tabMvt = [];
     if (gr.mvtAdmis(robot, 0,1)) {
@@ -32,7 +32,7 @@ Robot.prototype.perception(Grille)        = function(){
     return tabMvt;
 }
 
-Robot.prototype.reflexion(tabMvt)   = function(){
+Robot.prototype.reflexion   = function(tabMvt){
 
     var randInt = getRandomInt(0,3);
     var act     = tabMvt(randInt);
@@ -40,11 +40,11 @@ Robot.prototype.reflexion(tabMvt)   = function(){
     return act;
 }
 
-Robot.prototype.action(act)         = function(){
+Robot.prototype.action = function(act){
 
 
 
 }
 
-Robot.prototype.reveille()          = function(){
+Robot.prototype.reveille = function(){
 }
