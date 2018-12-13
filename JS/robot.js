@@ -51,5 +51,7 @@ Robot.prototype.action = function(act){
 
 }
 
+/* positionne eveille à TRUE  et lance la boucle perception-reflexion-action*/
 Robot.prototype.reveille = function(){
+    this.eveille = true;
 }
