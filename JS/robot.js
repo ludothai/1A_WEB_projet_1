@@ -8,6 +8,7 @@ function Robot(x, y, vitesse, couleur) {
 }
 
 Robot.prototype.dessin(ctx, dx, dy) = function(){
+    
     var circle  = document.getElementById("circle");
     var context = canvas.getContext("2d");
 
@@ -15,7 +16,6 @@ Robot.prototype.dessin(ctx, dx, dy) = function(){
     context.fillStyle = Robot.couleur
     context.arc(10,10,70,0,2*Math.PI);
     context.fill;
-
 };
 
 Robot.prototype.perception()      = function(){
