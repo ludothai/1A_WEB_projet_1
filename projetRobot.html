@@ -1,47 +1,45 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>TP1-4</title>
-	<meta charset="utf-8"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-	<link rel="stylesheet" href="tools/normalize.css"/>
-	<style type="text/css">
-     * { text-align: center; }
-     .canva { width: 350px; height: 350px; border-width: 2px; border-style: solid; margin-left: auto; margin-right: auto;}
-     #stop:hover { font-variant: small-caps; cursor: pointer; }
-   </style>
-   <script type="text/javascript" src="tools/tools.js"></script>
-	 <script type="text/javascript" src="JS/grille.js"></script>
-	 <script type="text/javascript" src="JS/robot.js"></script>
-</head>
-<body>
-   <div class="canva">
-		<canvas id="mon_canvas" width="350" height="350">
-  			Texte alternatif pour les navigateurs ne supportant pas Canvas.
-		</canvas>
-	</div>
-  <div id="stop_clic">Stop</div>
-</body>
-<script type="text/javascript">
-  // -------------------------------------------------------
-  // Méthodes de l'objet Grille
-
-  // -------------------------------------------------------
-  // Méthodes de l'objet
-
-  // -------------------------------------------------------
-  // scène globale
-  //var gr = new Grille(12,12,'mon_canvas');
-  var rbt1 = new Robot(4,4,0.1,'black');
-  //var rbt2 = new Robot(11,11,0.03,'red');
-  //var rbt3 = new Robot(5,10,0.05,'blue');
-  //gr.ajoutObjet(rbt1);
-  //gr.ajoutObjet(rbt2);
-  //gr.ajoutObjet(rbt3);
-  //gr.dessin();
-  //rbt1.reveille();
-  //rbt2.reveille();
-  //rbt3.reveille();
-  alert("test");
-</script>
+    <head>
+        <title>TP1-4</title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+        <link rel="stylesheet" href="tools/normalize.css"/>
+        <style type="text/css">
+            * { text-align: center; }
+            .canva { width: 350px; height: 350px; border-width: 2px; border-style: solid; margin-left: auto; margin-right: auto;}
+            #stop:hover { font-variant: small-caps; cursor: pointer; }
+        </style>
+        <script type="text/javascript" src="tools/tools.js"></script>
+        <script type="text/javascript" src="JS/grille.js"></script>
+        <script type="text/javascript" src="JS/robot.js"></script>
+    </head>
+    <body>
+        <div class="canva">
+            <canvas id="mon_canvas" width="350" height="350">
+                    Texte alternatif pour les navigateurs ne supportant pas Canvas.
+            </canvas>
+        </div>
+        <div id="stop_clic">Stop</div>
+    </body>
+    <script type="text/javascript">
+        // -------------------------------------------------------
+        // Méthodes de l'objet Grille
+        // -------------------------------------------------------
+        // Méthodes de l'objet
+        // -------------------------------------------------------
+        // scène globale
+        //var gr = new Grille(12,12,'mon_canvas');
+        var rbt1 = new Robot(4,4,0.1,'black');
+        //var rbt2 = new Robot(11,11,0.03,'red');
+        //var rbt3 = new Robot(5,10,0.05,'blue');
+        //gr.ajoutObjet(rbt1);
+        //gr.ajoutObjet(rbt2);
+        //gr.ajoutObjet(rbt3);
+        //gr.dessin();
+        //rbt1.reveille();
+        //rbt2.reveille();
+        //rbt3.reveille();
+        alert("test");
+    </script>
 </html>

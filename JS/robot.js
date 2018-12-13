@@ -1,3 +1,5 @@
+/* Fonction constructeur Robot */
+
 function Robot(x, y, vitesse, couleur) {
     this.posX    = x;
     this.posY    = y;
@@ -10,7 +12,7 @@ function Robot(x, y, vitesse, couleur) {
 Robot.prototype.dessin(ctx, dx, dy) = function(){
     
     var circle  = document.getElementById("circle");
-    var context = canvas.getContext("2d");
+    var context = circle.getContext("2d");
 
     context.beginpath();
     context.fillStyle = Robot.couleur
