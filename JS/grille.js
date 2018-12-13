@@ -33,12 +33,14 @@ Grille.prototype.ajoutObjet = function(objet){
 }
 
 Grille.prototype.dessin = function(){
-    
+    for(var i = 0; i <nbCur; i++){
+        this.obj[i].dessin();
+    }
     this.dessinGrille;
 }
 
 Grille.prototype.mvtAdmis = function(objet, dx, dy){
-
+    
 }
 
 Grille.prototype.majDessin = function(objet, dx, dy){
