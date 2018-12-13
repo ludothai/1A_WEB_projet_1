@@ -7,32 +7,43 @@ function Robot(x, y, vitesse, couleur) {
     this.eveille = false;
 }
 
-Grille.prototype.dessin(ctx, dx, dy) = function(){
-    };
+Robot.prototype.dessin(ctx, dx, dy) = function(){
+    var circle  = document.getElementById("circle");
+    var context = canvas.getContext("2d");
 
-Grille.prototype.perception()      = function(){
-        tabMvt = [];
-        if (gr.mvtAdmis(robot, 0,1)) {
-            tabMvt.push("Up")
-        }
-        if (gr.mvtAdmis(robot, 0,-1)) {
-            tabMvt.push("Down")
-        }
-        if (gr.mvtAdmis(robot, 1,0)) {
-            tabMvt.push("Right")
-        }
-        if (gr.mvtAdmis(robot, -1,0)) {
-            tabMvt.push("Left")
-        }
+    context.beginpath();
+    context.fillStyle = Robot.couleur
+    context.arc(10,10,70,0,2*Math.PI);
+    context.fill;
 
-        return tabMvt;
-    }
-Grille.prototype.reflexion(tabMvt) = function(){
+};
 
+Robot.prototype.perception()      = function(){
+    var tabMvt = [];
+    if (gr.mvtAdmis(robot, 0,1)) {
+        tabMvt.push("Up")
     }
-Grille.prototype.action(act)       = function(){
+    if (gr.mvtAdmis(robot, 0,-1)) {
+        tabMvt.push("Down")
+    }
+    if (gr.mvtAdmis(robot, 1,0)) {
+        tabMvt.push("Right")
+    }
+    if (gr.mvtAdmis(robot, -1,0)) {
+        tabMvt.push("Left")
+    }
 
-    }
-Grille.prototype.reveille()        = function(){
-        
-    }
+    return tabMvt;
+}
+
+Robot.prototype.reflexion(tabMvt) = function(){
+
+}
+
+Robot.prototype.action(act)       = function(){
+
+}
+
+Robot.prototype.reveille()        = function(){
+
+}
