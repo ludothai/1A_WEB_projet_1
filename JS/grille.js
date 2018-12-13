@@ -1,3 +1,4 @@
+/* Constructeur de la grille */
 function Grille(nbX, nbY, canvasID){
 
     /* Attributs de l'objet */
@@ -13,6 +14,7 @@ function Grille(nbX, nbY, canvasID){
     this.nbCur  = 0;
 }
 
+/* Dessine la grille */
 Grille.prototype.dessinGrille = function(){
     this.ctx.beginPath();
     for(var i = 0; i < this.nbX; i++){
@@ -26,19 +28,23 @@ Grille.prototype.dessinGrille = function(){
     this.ctx.closePath();
 }
 
+/* Ajoute un nouvel objet tableau obj, incrément nbCur et positionne à "explorée
+ la cellule" */
 Grille.prototype.ajoutObjet = function(objet){
     this.tab.push(objet);
     this.nbCur = this.nbCur + 1;
     this.tab[objet.posX][objet.posY] = true;
 }
 
+/* Dessin les objets sur la grille */
 Grille.prototype.dessin = function(){
-    for(var i = 0; i <nbCur; i++){
+    for(var i = 0; i < this.nbCur; i++){
         this.obj[i].dessin();
     }
     this.dessinGrille;
 }
 
+/* Retourne TRUE si l'objet peut se déplacer d'un mouvement de (dx, dy) */
 Grille.prototype.mvtAdmis = function(objet, dx, dy){
     if ((objet.posX+dx < 0) || (objet.posX+dx > this.canvas.width)){
         return false;
@@ -51,10 +57,15 @@ Grille.prototype.mvtAdmis = function(objet, dx, dy){
     return true;
 }
 
+/* met à jour l'affichage d'un objet suiteà son déplacement sur la grille
+de (dx, dy) */
 Grille.prototype.majDessin = function(objet, dx, dy){
     
 }
 
+/* Annule le déplacement de tous les objets en les rendant endormis */
 Grille.prototype.stopObjet = function(){
-
+    for (var i = 0; i < this.nbCur; i++){
+        this.obj[i].eveille = false;
+    }
 }
