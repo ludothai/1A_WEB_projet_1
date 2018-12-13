@@ -24,9 +24,9 @@ Grille.prototype.dessinGrille = function(){
             this.ctx.rect(i*this.dX, j*this.dY, this.dX, this.dY);
         }
     }
+
     this.ctx.stroke();
     this.ctx.closePath();
-
 }
 
 Grille.prototype.ajoutObjet = function(objet){
