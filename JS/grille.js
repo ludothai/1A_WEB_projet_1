@@ -40,11 +40,19 @@ Grille.prototype.dessin = function(){
 }
 
 Grille.prototype.mvtAdmis = function(objet, dx, dy){
-    
+    if ((objet.posX+dx < 0) || (objet.posX+dx > this.canvas.width)){
+        return false;
+    } else if ((objet.posY+dy < 0) || (objet.posY+dy > this.canvas.width)){
+        return false;
+    } else if (( (dy+dx)<(-thid.dX)) || (dy+dx)>thid.dX){ //on suppose que dX = dY
+        return false;
+    }
+
+    return true;
 }
 
 Grille.prototype.majDessin = function(objet, dx, dy){
-
+    
 }
 
 Grille.prototype.stopObjet = function(){
