@@ -1,5 +1,3 @@
-/* Définition d'une fonction constructeur de nom Grille */
-
 function Grille(nbX, nbY, canvasID){
 
     /* Attributs de l'objet */
@@ -16,7 +14,6 @@ function Grille(nbX, nbY, canvasID){
 }
 
 Grille.prototype.dessinGrille = function(){
-
     this.ctx.beginPath();
     for(var i = 0; i < this.nbX; i++){
         for(var j = 0; j < this.nbY; j++){
@@ -30,11 +27,13 @@ Grille.prototype.dessinGrille = function(){
 }
 
 Grille.prototype.ajoutObjet = function(objet){
-
+    this.tab.push(objet);
+    this.nbCur = this.nbCur + 1;
+    this.tab[objet.posX][objet.posY] = true;
 }
 
 Grille.prototype.dessin = function(){
-
+    
     this.dessinGrille;
 }
 
