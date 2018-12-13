@@ -13,10 +13,5 @@ function Grille(nbX, nbY, canvaID)
   this.nbC = (nbX)*(nbY);
   this.nbCur = 0;
 
-  this.ajoutObjet = function()
-  {
-        
-  }
-
 
 }
