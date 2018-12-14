@@ -34,7 +34,7 @@ Robot.prototype.perception = function(){
     if (gr.mvtAdmis(this, -gr.dX, 0)) {
         tabMvt.push("Left");
     }
-    alert(tabMvt);
+    //alert(tabMvt);
     if(this.eveille){
         this.reflexion(tabMvt);
     }
@@ -44,22 +44,21 @@ Robot.prototype.reflexion   = function(tabMvt){
 
     var randInt = getRandomInt(0,tabMvt.length-1);
     var act     = tabMvt[randInt];
-    alert(act);
     this.action(act);
 }
 
 Robot.prototype.action = function(act){
-    
+
     var mvt = [0,0];
 
     switch (act) {
         case "Up":
             this.posY--;
-            mvt[1] = 1;
+            mvt[1] = -1;
             break;
         case "Down":
             this.posY++;
-            mvt[1] = -1;
+            mvt[1] = 1;
             break;
         case "Right":
             this.posX++;
@@ -74,7 +73,7 @@ Robot.prototype.action = function(act){
     }
 
     gr.majDessin(this, mvt[0] * gr.dX, mvt[1] * gr.dY);
-    //this.perception();
+    this.perception();
 
 }
 
