@@ -35,16 +35,22 @@ Robot.prototype.perception = function(){
         tabMvt.push("Left");
     }
     //alert(tabMvt);
+
+    var that = this;
     if(this.eveille){
-         setTimeout(this.reflexion, this.temps, tabMvt);
+        //this.reflexion(tabMvt);
+        //setTimeout(function{allert("hello")}, 2);
+        setTimeout(function(){
+            that.reflexion(tabMvt)}, that.temps);
     }
 }
 
 Robot.prototype.reflexion = function(tabMvt){
-
+    var that = this;
     var randInt = getRandomInt(0,tabMvt.length-1);
     var act     = tabMvt[randInt];
-    setTimeout(this.action, this.temps, act);
+    this.action(act);
+    //setTimeout(that.action(act), that.temps);
 }
 
 Robot.prototype.action = function(act){
