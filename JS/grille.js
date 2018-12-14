@@ -53,16 +53,32 @@ Grille.prototype.dessin = function(){
 
 /* Retourne TRUE si l'objet peut se déplacer d'un mouvement de (dx, dy) */
 Grille.prototype.mvtAdmis = function(objet, dx, dy){
-    //console.log(this.tab[objet.posX][objet.posY][0]);
+    var mvt = [0,0];
+
+    if (dx<0){
+        mvt[0] = -1;
+    } else if (dx>0) {
+        mvt[0] = 1;
+    }
+
+    if (dy<0){
+        mvt[1] = -1;
+    } else if (dy>0) {
+        mvt[1] = 1;
+    }
+
+
     if ((objet.posX * this.dX + dx < 0) || (objet.posX * this.dX + dx > this.canvas.width)){
         return false;
     } else if ((objet.posY * this.dY + dy < 0) || (objet.posY * this.dY + dy > this.canvas.height)){
         return false;
-    } else if ((this.tab[objet.posX][objet.posY][0]).couleur == objet.couleur){
+    } else if(this.tab[objet.posX + mvt[0]][objet.posY + mvt[1]].length){
+        if ((this.tab[objet.posX + mvt[0]][objet.posY + mvt[1]][0]).couleur == objet.couleur){
+            return false
+        }
         //console.log(this.tab[objet.posX][objet.posY]);
-        return false;
-    }
-    else {
+        return true;
+    } else {
         return true;
     }
 }
