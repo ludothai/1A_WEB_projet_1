@@ -65,9 +65,9 @@ Grille.prototype.mvtAdmis = function(objet, dx, dy){
 /* met à jour l'affichage d'un objet suite à son déplacement sur la grille
 de (dx, dy) */
 Grille.prototype.majDessin = function(objet, dx, dy){
+    
     this.ctx.clearRect(objet.posX - dx, objet.posY - dy, this.dX, this.dY);
-
-    objet.dessin(this.ctx, objet.posX, objet.posY);
+    objet.dessin(this.ctx, this.dX, this.dY);
 }
 
 /* Annule le déplacement de tous les objets en les rendant endormis */
