@@ -46,7 +46,7 @@ Robot.prototype.reflexion   = function(tabMvt){
 }
 
 Robot.prototype.action = function(act,Grille){
-
+    
 }
 
 /* positionne eveille à TRUE  et lance la boucle perception-reflexion-action*/
