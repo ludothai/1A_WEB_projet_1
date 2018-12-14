@@ -42,7 +42,6 @@ Robot.prototype.perception = function(){
 }
 
 Robot.prototype.reflexion = function(tabMvt){
-
     var randInt = getRandomInt(0,tabMvt.length-1);
     var act = tabMvt[randInt]; // choix (aléatoire) du mouvement
     this.action(act);

@@ -17,7 +17,7 @@ function Grille(nbX, nbY, canvasID){
     for(i = 0; i < this.nbX; i++){
         this.tab.push([])
         for(j = 0; j < this.nbY; j++){
-            this.tab[i].push(false);
+            this.tab[i].push([]);
         }
     }
 }
@@ -31,7 +31,6 @@ Grille.prototype.dessinGrille = function(){
             this.ctx.rect(i*this.dX, j*this.dY, this.dX, this.dY);
         }
     }
-
     this.ctx.stroke(); //dessine le rectangle
     this.ctx.closePath();
 }
@@ -41,7 +40,7 @@ Grille.prototype.dessinGrille = function(){
 Grille.prototype.ajoutObjet = function(objet){
     this.obj.push(objet);
     this.nbCur = this.nbCur + 1;
-    this.tab[objet.posX][objet.posY] = true;
+    this.tab[objet.posX][objet.posY].push(objet);
 }
 
 /* Dessin les objets sur la grille */
@@ -54,10 +53,31 @@ Grille.prototype.dessin = function(){
 
 /* Retourne TRUE si l'objet peut se déplacer d'un mouvement de (dx, dy) */
 Grille.prototype.mvtAdmis = function(objet, dx, dy){
+    var mvt = [0,0];
+
+    if (dx<0){
+        mvt[0] = -1;
+    } else if (dx>0) {
+        mvt[0] = 1;
+    }
+
+    if (dy<0){
+        mvt[1] = -1;
+    } else if (dy>0) {
+        mvt[1] = 1;
+    }
+
+
     if ((objet.posX * this.dX + dx < 0) || (objet.posX * this.dX + dx > this.canvas.width)){
         return false;
     } else if ((objet.posY * this.dY + dy < 0) || (objet.posY * this.dY + dy > this.canvas.height)){
         return false;
+    } else if(this.tab[objet.posX + mvt[0]][objet.posY + mvt[1]].length){ //si la cellule contient déjà un robot
+        if ((this.tab[objet.posX + mvt[0]][objet.posY + mvt[1]][0]).couleur == objet.couleur){
+            return false
+        }
+        //console.log(this.tab[objet.posX][objet.posY]);
+        return true;
     } else {
         return true;
     }
@@ -66,20 +86,20 @@ Grille.prototype.mvtAdmis = function(objet, dx, dy){
 /* met à jour l'affichage d'un objet suite à son déplacement sur la grille
 de (dx, dy) */
 Grille.prototype.majDessin = function(objet, dx, dy){
-    this.ctx.clearRect(objet.posX * this.dX - dx, objet.posY *this.dY - dy, this.dX, this.dY);
+    // this.ctx.clearRect(objet.posX * this.dX - dx, objet.posY *this.dY - dy, this.dX, this.dY);
     objet.dessin(this.ctx, this.dX, this.dY);
 
-    // modifie tab en fonction de l'exploration des cellules par les robots
-    if (this.tab[objet.posX][objet.posY] == false){
-        this.tab[objet.posX][objet.posY] = true;
-        this.nbCur = this.nbCur + 1;
-    }
-
-    // cas lorsque tous les cellules ont été parcourues
-    if (this.nbCur >= this.nbC){
-        this.ctx.clearRect(objet.posX * this.dX - dx, objet.posY *this.dY - dy, this.dX, this.dY);
-        this.stopObjet();
-    }
+    // // modifie tab en fonction de l'exploration des cellules par les robots
+    // if (this.tab[objet.posX][objet.posY] == false){
+    //     this.tab[objet.posX][objet.posY] = true;
+    //     this.nbCur = this.nbCur + 1;
+    // }
+    //
+    // // cas lorsque tous les cellules ont été parcourues
+    // if (this.nbCur >= this.nbC){
+    //     this.ctx.clearRect(objet.posX * this.dX - dx, objet.posY *this.dY - dy, this.dX, this.dY);
+    //     this.stopObjet();
+    // }
 }
 
 /* Annule le déplacement de tous les objets en les rendant endormis */
