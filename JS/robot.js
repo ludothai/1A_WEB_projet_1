@@ -39,7 +39,7 @@ Robot.prototype.perception = function(Grille){
 
 Robot.prototype.reflexion   = function(tabMvt){
 
-    var randInt = getRandomInt(0,klcscdsc);
+    var randInt = getRandomInt(0,tabMvt.lenght);
     var act     = tabMvt(randInt);
 
     return act;
