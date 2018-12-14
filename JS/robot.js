@@ -68,6 +68,7 @@ Robot.prototype.action = function(act){
     }
 
     gr.majDessin(this, gr.dX, gr.dY);
+    this.perception();
 }
 
 /* positionne eveille à TRUE  et lance la boucle perception-reflexion-action*/
