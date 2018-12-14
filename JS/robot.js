@@ -28,10 +28,10 @@ Robot.prototype.perception = function(){
     if (gr.mvtAdmis(this, 0, -gr.dY)) {
         tabMvt.push("Down");
     }
-    if (gr.mvtAdmis(this, gr.dX,0)) {
+    if (gr.mvtAdmis(this, gr.dX, 0)) {
         tabMvt.push("Right");
     }
-    if (gr.mvtAdmis(this, -gr.dX,0)) {
+    if (gr.mvtAdmis(this, -gr.dX, 0)) {
         tabMvt.push("Left");
     }
     if(this.eveille){
