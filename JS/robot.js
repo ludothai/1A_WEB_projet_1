@@ -36,21 +36,17 @@ Robot.prototype.perception = function(){
         this.eveille = false;
     }
 
-    var that = this;
-
     if(this.eveille){
-        setTimeout(function(){
-            that.reflexion(tabMvt)}, that.temps*1000);
+        this.reflexion(tabMvt);
     }
 }
 
 Robot.prototype.reflexion = function(tabMvt){
-    var that = this;
+
     var randInt = getRandomInt(0,tabMvt.length-1);
     var act = tabMvt[randInt]; // choix (aléatoire) du mouvement
+    this.action(act);
 
-    setTimeout(function(){
-        that.action(act)}, that.temps*1000);
 }
 
 Robot.prototype.action = function(act){
@@ -80,7 +76,11 @@ Robot.prototype.action = function(act){
     }
 
     gr.majDessin(this, mvt[0] * gr.dX, mvt[1] * gr.dY);
-    this.perception();
+    var that = this;
+
+    setTimeout(function(){
+        that.perception()}, that.temps*1000);
+
 }
 
 /* positionne eveille à TRUE  et lance la boucle perception-reflexion-action */
