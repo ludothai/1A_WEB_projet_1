@@ -66,11 +66,7 @@ Grille.prototype.mvtAdmis = function(objet, dx, dy){
 de (dx, dy) */
 Grille.prototype.majDessin = function(objet, dx, dy){
 
-<<<<<<< HEAD
-    this.ctx.clearRect(objet.posX*this.dX - dx, objet.posY*this.posY - dy, this.dX, this.dY);
-=======
     this.ctx.clearRect(objet.posX * dx, objet.posY *dy, dx, dy);
->>>>>>> 9846d735a9e978f9a9d0ad599caf67bb6a818fc5
     objet.dessin(this.ctx, this.dX, this.dY);
 }
 
