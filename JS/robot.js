@@ -5,32 +5,30 @@ function Robot(x, y, vitesse, couleur) {
     this.posY    = y;
     this.temps   = vitesse;
     this.couleur = couleur;
-    this.timeID;
+    this.timeID  = NULL;
     this.eveille = false;
 }
 
 Robot.prototype.dessin = function(ctx, dx, dy){
-
-    ctx.beginPath();
-    ctx.fillStyle = this.couleur
-    ctx.arc(this.posX + dx/2, this.posY + dy/2, dx/2, 0, 2 * Math.PI);
-    ctx.fill()
-
+    context.beginPath();
+    context.fillStyle = this.couleur
+    context.arc(this.posX + dx/2, this.posY + dy/2, dx/2, 0, 2 * Math.PI);
+    context.fill()
 };
 
 Robot.prototype.perception = function(Grille){
 
     var tabMvt = [];
-    if (Grille.mvtAdmis(robot, 0,1)) {
+    if (Grille.mvtAdmis(robot, 0, Grille.dY)) {
         tabMvt.push("Up")
     }
-    if (Grille.mvtAdmis(robot, 0,-1)) {
+    if (Grille.mvtAdmis(robot, 0, -Grille.dY)) {
         tabMvt.push("Down")
     }
-    if (Grille.mvtAdmis(robot, 1,0)) {
+    if (Grille.mvtAdmis(robot, Grille.dX,0)) {
         tabMvt.push("Right")
     }
-    if (Grille.mvtAdmis(robot, -1,0)) {
+    if (Grille.mvtAdmis(robot, -Grille.dX,0)) {
         tabMvt.push("Left")
     }
 
@@ -52,7 +50,6 @@ Robot.prototype.action = function(act,Grille){
 /* positionne eveille à TRUE  et lance la boucle perception-reflexion-action*/
 Robot.prototype.reveille = function(){
     this.eveille = true;
-    this.timeID  = 5;
 
     while(this.eveille){
         var tabMvt = this.perception(Grille);
