@@ -79,8 +79,8 @@ Grille.prototype.majDessin = function(objet, dx, dy){
     console.log(this.nbCur);
 
     if (this.nbCur >= this.nbC){
-        this.stopObjet();
         this.ctx.clearRect(objet.posX * this.dX - dx, objet.posY *this.dY - dy, this.dX, this.dY);
+        this.stopObjet();
     }
 }
 
