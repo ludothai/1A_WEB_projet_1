@@ -23,21 +23,13 @@
         <div id="stop_clic">Stop</div>
     </body>
     <script type="text/javascript">
-
-
-
-        // -------------------------------------------------------
-        // Méthodes de l'objet Grille
-        // -------------------------------------------------------
-        // Méthodes de l'objet
-        // -------------------------------------------------------
         // scène globale
         var gr   = new Grille(12,12,'mon_canvas');
         var stop = document.getElementById('stop_clic');
-        stop.addEventListener("click", gr.stopObjet());
+        stop.addEventListener("click", alert("stop"));
         var rbt1 = new Robot(4,4,0.1,'black');
-        var rbt2 = new Robot(11,11,0.03,'red');
-        var rbt3 = new Robot(5,10,0.05,'blue');
+        //var rbt2 = new Robot(11,11,0.03,'red');
+        //var rbt3 = new Robot(5,10,0.05,'blue');
         gr.ajoutObjet(rbt1);
         gr.ajoutObjet(rbt2);
         gr.ajoutObjet(rbt3);
