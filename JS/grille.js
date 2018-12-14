@@ -57,11 +57,9 @@ Grille.prototype.mvtAdmis = function(objet, dx, dy){
         return false;
     } else if ((objet.posY+dy < 0) || (objet.posY+dy > this.canvas.width)){
         return false;
-    } else if (( (dy+dx)<(-this.dX)) || (dy+dx)>this.dX){ //on suppose que dX = dY
-        return false;
+    } else {
+        return true;
     }
-
-    return true;
 }
 
 /* met à jour l'affichage d'un objet suite à son déplacement sur la grille
