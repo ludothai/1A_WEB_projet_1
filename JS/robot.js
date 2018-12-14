@@ -21,16 +21,16 @@ Robot.prototype.dessin = function(ctx, dx, dy){
 Robot.prototype.perception = function(Grille){
 
     var tabMvt = [];
-    if (gr.mvtAdmis(robot, 0,1)) {
+    if (Grille.mvtAdmis(robot, 0,1)) {
         tabMvt.push("Up")
     }
-    if (gr.mvtAdmis(robot, 0,-1)) {
+    if (Grille.mvtAdmis(robot, 0,-1)) {
         tabMvt.push("Down")
     }
-    if (gr.mvtAdmis(robot, 1,0)) {
+    if (Grille.mvtAdmis(robot, 1,0)) {
         tabMvt.push("Right")
     }
-    if (gr.mvtAdmis(robot, -1,0)) {
+    if (Grille.mvtAdmis(robot, -1,0)) {
         tabMvt.push("Left")
     }
 
@@ -45,14 +45,18 @@ Robot.prototype.reflexion   = function(tabMvt){
     return act;
 }
 
-Robot.prototype.action = function(act){
-
-
+Robot.prototype.action = function(act,Grille){
 
 }
 
 /* positionne eveille à TRUE  et lance la boucle perception-reflexion-action*/
 Robot.prototype.reveille = function(){
     this.eveille = true;
+
+    while(this.eveille){
+        var tabMvt = this.perception(Grille);
+        var act    = this.reflexion(tabMvt);
+        this.action(act);
+    }
 
 }
