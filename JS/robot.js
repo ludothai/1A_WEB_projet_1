@@ -18,7 +18,7 @@ Robot.prototype.dessin = function(ctx, dx, dy){
 
 };
 
-Robot.prototype.perception        = function(Grille){
+Robot.prototype.perception = function(Grille){
 
     var tabMvt = [];
     if (gr.mvtAdmis(robot, 0,1)) {
@@ -54,4 +54,5 @@ Robot.prototype.action = function(act){
 /* positionne eveille à TRUE  et lance la boucle perception-reflexion-action*/
 Robot.prototype.reveille = function(){
     this.eveille = true;
+
 }
