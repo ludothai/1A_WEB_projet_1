@@ -8,10 +8,17 @@ function Grille(nbX, nbY, canvasID){
     this.ctx    = this.canvas.getContext("2d");
     this.dX     = this.canvas.width  / nbX;
     this.dY     = this.canvas.height / nbY;
-    this.tab    = [[false]*nbY]*nbX;
+    this.tab    = [];
     this.obj    = [];
     this.nbC    = (nbX)*(nbY);
     this.nbCur  = 0;
+
+    for(i = 0; i < this.dX; i++){
+        this.tab.push([])
+        for(j = 0; j < this.dY; j++){
+            this.tab[i].push(false);
+        }
+    }
 }
 
 /* Dessine la grille */
@@ -31,7 +38,7 @@ Grille.prototype.dessinGrille = function(){
 /* Ajoute un nouvel objet tableau obj, incrément nbCur et positionne à "explorée
  la cellule" */
 Grille.prototype.ajoutObjet = function(objet){
-    this.tab.push(objet);
+    this.obj.push(objet);
     this.nbCur = this.nbCur + 1;
     this.tab[objet.posX][objet.posY] = true;
 }
