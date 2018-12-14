@@ -18,24 +18,25 @@ Robot.prototype.dessin = function(ctx, dx, dy){
 
 };
 
-Robot.prototype.perception = function(Grille){
+Robot.prototype.perception = function(){
 
     var tabMvt = [];
 
-    if (Grille.mvtAdmis(this, 0, Grille.dY) == true) {
+    if (gr.mvtAdmis(this, 0, gr.dY)) {
         tabMvt.push("Up");
     }
-    if (Grille.mvtAdmis(this, 0, -Grille.dY) == true) {
+    if (gr.mvtAdmis(this, 0, -gr.dY)) {
         tabMvt.push("Down");
     }
-    if (Grille.mvtAdmis(this, Grille.dX,0) == true) {
+    if (gr.mvtAdmis(this, gr.dX,0)) {
         tabMvt.push("Right");
     }
-    if (Grille.mvtAdmis(this, -Grille.dX,0) == true) {
+    if (gr.mvtAdmis(this, -gr.dX,0)) {
         tabMvt.push("Left");
     }
-
-    return tabMvt;
+    if(this.eveille){
+        this.reflexion(tabMvt);
+    }
 }
 
 Robot.prototype.reflexion   = function(tabMvt){
@@ -43,10 +44,10 @@ Robot.prototype.reflexion   = function(tabMvt){
     var randInt = getRandomInt(0,tabMvt.lenght);
     var act     = tabMvt[randInt];
 
-    return act;
+    this.action(act);
 }
 
-Robot.prototype.action = function(act,Grille){
+Robot.prototype.action = function(act){
 
     switch (act) {
         case "Up":
@@ -65,16 +66,13 @@ Robot.prototype.action = function(act,Grille){
         default:
             break;
     }
+
+    gr.majDessin(this, gr.dX, gr.dY);
 }
 
 /* positionne eveille à TRUE  et lance la boucle perception-reflexion-action*/
-Robot.prototype.reveille = function(Grille){
+Robot.prototype.reveille = function(){
+
     this.eveille = true;
-
-    while(this.eveille){
-        var tabMvt = this.perception(Grille);
-        var act    = this.reflexion(tabMvt);
-        this.action(act);
-    }
-
+    this.perception();
 }
