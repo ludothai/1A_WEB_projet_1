@@ -64,7 +64,7 @@ Grille.prototype.mvtAdmis = function(objet, dx, dy){
     return true;
 }
 
-/* met à jour l'affichage d'un objet suiteà son déplacement sur la grille
+/* met à jour l'affichage d'un objet suite à son déplacement sur la grille
 de (dx, dy) */
 Grille.prototype.majDessin = function(objet, dx, dy){
     
