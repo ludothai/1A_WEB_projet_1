@@ -32,6 +32,9 @@ Robot.prototype.perception = function(){
     if (gr.mvtAdmis(this, -gr.dX, 0)) {
         tabMvt.push("Left");
     }
+    if(tabMvt == []){
+        this.eveille = false;
+    }
 
     var that = this;
 
@@ -72,6 +75,7 @@ Robot.prototype.action = function(act){
             mvt[0] = -1;
             break;
         default:
+
             break;
     }
 
