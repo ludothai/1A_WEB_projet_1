@@ -23,6 +23,9 @@ function Grille(nbX, nbY, canvasID){
 
 /* Dessine la grille */
 Grille.prototype.dessinGrille = function(){
+    console.log(this.tab);
+    console.log(this.tab[3][4]);
+
     this.ctx.beginPath();
     for(var i = 0; i < this.nbX; i++){
         for(var j = 0; j < this.nbY; j++){
@@ -65,14 +68,25 @@ Grille.prototype.mvtAdmis = function(objet, dx, dy){
 /* met à jour l'affichage d'un objet suite à son déplacement sur la grille
 de (dx, dy) */
 Grille.prototype.majDessin = function(objet, dx, dy){
-
     this.ctx.clearRect(objet.posX * this.dX - dx, objet.posY *this.dY - dy, this.dX, this.dY);
     objet.dessin(this.ctx, this.dX, this.dY);
+
+    console.log(this.tab[objet.posX][objet.posY]);
+    if (this.tab[objet.posX][objet.posY] == false){
+        this.tab[objet.posX][objet.posY] = true;
+        this.nbCur = this.nbCur + 1;
+    }
+    console.log(this.nbCur);
+
+    if (this.nbCur >= this.nbC){
+        this.stopObjet();
+        this.ctx.clearRect(objet.posX * this.dX - dx, objet.posY *this.dY - dy, this.dX, this.dY);
+    }
 }
 
 /* Annule le déplacement de tous les objets en les rendant endormis */
 Grille.prototype.stopObjet = function(){
-    alert("stop");
+    // alert("stop");
     for (var i = 0; i < this.obj.length; i++){
         this.obj[i].eveille = false;
     }
