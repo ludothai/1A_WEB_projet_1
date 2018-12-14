@@ -48,7 +48,7 @@ Grille.prototype.dessin = function(){
     for(var i = 0; i < this.nbCur; i++){
         this.obj[i].dessin();
     }
-    this.dessinGrille;
+    this.dessinGrille();
 }
 
 /* Retourne TRUE si l'objet peut se déplacer d'un mouvement de (dx, dy) */
