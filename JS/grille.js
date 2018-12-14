@@ -53,9 +53,9 @@ Grille.prototype.dessin = function(){
 
 /* Retourne TRUE si l'objet peut se déplacer d'un mouvement de (dx, dy) */
 Grille.prototype.mvtAdmis = function(objet, dx, dy){
-    if ((objet.posX*this.dX +dx*this.dX < 0) || (objet.posX * this.dX + dx * this.dX > this.canvas.width)){
+    if ((objet.posX * this.dX + dx < 0) || (objet.posX * this.dX + dx > this.canvas.width)){
         return false;
-    } else if ((objet.posY * this.dY +this.dY < 0) || (objet.posY * this.dY+ this.dY > this.canvas.width)){
+    } else if ((objet.posY * this.dY + dy < 0) || (objet.posY * this.dY + dy > this.canvas.height)){
         return false;
     } else {
         return true;
