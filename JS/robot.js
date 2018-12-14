@@ -23,16 +23,16 @@ Robot.prototype.perception = function(){
     var tabMvt = [];
 
     if (gr.mvtAdmis(this, 0, gr.dY)) {
-        tabMvt.push("Up");
+        tabMvt.push(1);
     }
     if (gr.mvtAdmis(this, 0, -gr.dY)) {
-        tabMvt.push("Down");
+        tabMvt.push(2);
     }
     if (gr.mvtAdmis(this, gr.dX, 0)) {
-        tabMvt.push("Right");
+        tabMvt.push(3);
     }
     if (gr.mvtAdmis(this, -gr.dX, 0)) {
-        tabMvt.push("Left");
+        tabMvt.push(4);
     }
     if(this.eveille){
         this.reflexion(tabMvt);
@@ -50,19 +50,18 @@ Robot.prototype.reflexion   = function(tabMvt){
 Robot.prototype.action = function(act){
 
     switch (act) {
-        case "Up":
+        case 1:
             this.posY++;
             break;
-        case "Down":
+        case 2:
             this.posY--;
             break;
-        case "Right":
+        case 3:
             this.posY++;
             break;
-        case "Left":
+        case 4:
             this.posY--;
             break;
-
         default:
             break;
     }
