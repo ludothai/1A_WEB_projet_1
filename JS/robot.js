@@ -5,7 +5,7 @@ function Robot(x, y, vitesse, couleur) {
     this.posY    = y;
     this.temps   = vitesse;
     this.couleur = couleur;
-    this.timeID = null;
+    this.timeID  = null;
     this.eveille = false;
 }
 
