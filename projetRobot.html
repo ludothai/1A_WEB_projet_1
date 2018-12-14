@@ -35,16 +35,16 @@
         var gr   = new Grille(12,12,'mon_canvas');
         var stop = document.getElementById('stop_clic');
         stop.addEventListener("click", gr.stopObjet());
-        var rbt1 = new Robot(4,4,0.1,'black');
+        var rbt1 = new Robot(4,4,10,'black');
         var rbt2 = new Robot(11,11,0.03,'red');
         var rbt3 = new Robot(5,10,0.05,'blue');
         gr.ajoutObjet(rbt1);
-        // gr.ajoutObjet(rbt2);
-        // gr.ajoutObjet(rbt3);
+        gr.ajoutObjet(rbt2);
+        gr.ajoutObjet(rbt3);
         gr.dessin();
         rbt1.reveille();
-        // rbt2.reveille();
-        // rbt3.reveille();
-        alert("Ca marche bien");
+        rbt2.reveille();
+        rbt3.reveille();
+        // alert("Ca marche bien");
     </script>
 </html>
