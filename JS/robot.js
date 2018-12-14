@@ -13,7 +13,7 @@ Robot.prototype.dessin = function(ctx, dx, dy){
 
     ctx.beginPath();
     ctx.fillStyle = this.couleur
-    ctx.arc(this.posX + dx/2, this.posY + dy/2, dx, 0, 2 * Math.PI);
+    ctx.arc(this.posX*dx + dx/2 , this.posY*dx + dy/2, dx/3, 0, 2* Math.PI);
     ctx.fill()
 
 };
