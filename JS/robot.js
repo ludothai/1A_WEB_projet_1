@@ -53,19 +53,27 @@ Robot.prototype.action = function(act){
 
     switch (act) {
         case "Up":
+            gr.tab[this.posX][this.posY] = false
             this.posY--;
+            gr.tab[this.posX][this.posY] = true
             mvt[1] = -1;
             break;
         case "Down":
+            gr.tab[this.posX][this.posY] = false
             this.posY++;
+            gr.tab[this.posX][this.posY] = true
             mvt[1] = 1;
             break;
         case "Right":
+            gr.tab[this.posX][this.posY] = false
             this.posX++;
+            gr.tab[this.posX][this.posY] = true
             mvt[0] = 1;
             break;
         case "Left":
+            gr.tab[this.posX][this.posY] = false
             this.posX--;
+            gr.tab[this.posX][this.posY] = true
             mvt[0] = -1;
             break;
         default:
@@ -79,6 +87,7 @@ Robot.prototype.action = function(act){
 
 /* positionne eveille à TRUE  et lance la boucle perception-reflexion-action*/
 Robot.prototype.reveille = function(){
+
     this.eveille = true;
     this.perception();
 }
