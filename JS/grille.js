@@ -72,7 +72,7 @@ Grille.prototype.mvtAdmis = function(objet, dx, dy){
         return false;
     } else if ((objet.posY * this.dY + dy < 0) || (objet.posY * this.dY + dy > this.canvas.height)){
         return false;
-    } else if(this.tab[objet.posX + mvt[0]][objet.posY + mvt[1]].length){
+    } else if(this.tab[objet.posX + mvt[0]][objet.posY + mvt[1]].length){ //si la cellule contient déjà un robot
         if ((this.tab[objet.posX + mvt[0]][objet.posY + mvt[1]][0]).couleur == objet.couleur){
             return false
         }
