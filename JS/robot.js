@@ -5,7 +5,7 @@ function Robot(x, y, vitesse, couleur) {
     this.posY    = y;
     this.temps   = vitesse;
     this.couleur = couleur;
-    this.timeID;
+    this.timeID = null;
     this.eveille = false;
 }
 
@@ -36,15 +36,15 @@ Robot.prototype.perception = function(){
     }
     //alert(tabMvt);
     if(this.eveille){
-        this.reflexion(tabMvt);
+         setTimeout(this.reflexion, this.temps, tabMvt);
     }
 }
 
-Robot.prototype.reflexion   = function(tabMvt){
+Robot.prototype.reflexion = function(tabMvt){
 
     var randInt = getRandomInt(0,tabMvt.length-1);
     var act     = tabMvt[randInt];
-    this.action(act);
+    setTimeout(this.action, this.temps, act);
 }
 
 Robot.prototype.action = function(act){
@@ -79,7 +79,6 @@ Robot.prototype.action = function(act){
 
 /* positionne eveille à TRUE  et lance la boucle perception-reflexion-action*/
 Robot.prototype.reveille = function(){
-
     this.eveille = true;
     this.perception();
 }
