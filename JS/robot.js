@@ -62,7 +62,7 @@ Robot.prototype.action = function(act){
         case "Left":
             this.posY--;
             break;
-    
+
         default:
             break;
     }
