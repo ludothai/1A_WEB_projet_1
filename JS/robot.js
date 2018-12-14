@@ -39,7 +39,7 @@ Robot.prototype.perception = function(){
     var that = this;
     if(this.eveille){
         setTimeout(function(){
-            that.reflexion(tabMvt)}, that.temps);
+            that.reflexion(tabMvt)}, that.temps*1000);
     }
 }
 
@@ -49,7 +49,7 @@ Robot.prototype.reflexion = function(tabMvt){
     var act     = tabMvt[randInt];
     //this.action(act);
     setTimeout(function(){
-        that.action(act)}, that.temps);
+        that.action(act)}, that.temps*1000);
 }
 
 Robot.prototype.action = function(act){

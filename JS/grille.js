@@ -72,7 +72,8 @@ Grille.prototype.majDessin = function(objet, dx, dy){
 
 /* Annule le déplacement de tous les objets en les rendant endormis */
 Grille.prototype.stopObjet = function(){
-    for (var i = 0; i < this.nbCur; i++){
+    alert("stop");
+    for (var i = 0; i < this.obj.length; i++){
         this.obj[i].eveille = false;
     }
 }
