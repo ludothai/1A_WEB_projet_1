@@ -46,7 +46,7 @@ Grille.prototype.ajoutObjet = function(objet){
 /* Dessin les objets sur la grille */
 Grille.prototype.dessin = function(){
     for(var i = 0; i < this.nbCur; i++){
-        this.obj[i].dessin(this.ctx, this.obj[i].posX, this.obj[i].posY);
+        this.obj[i].dessin(this.ctx, this.dX, this.dY);
     }
     this.dessinGrille();
 }
