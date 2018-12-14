@@ -13,6 +13,7 @@ function Grille(nbX, nbY, canvasID){
     this.nbC    = (nbX)*(nbY);
     this.nbCur  = 0;
 
+    // remplissage de tab
     for(i = 0; i < this.nbX; i++){
         this.tab.push([])
         for(j = 0; j < this.nbY; j++){
@@ -23,13 +24,10 @@ function Grille(nbX, nbY, canvasID){
 
 /* Dessine la grille */
 Grille.prototype.dessinGrille = function(){
-    console.log(this.tab);
-    console.log(this.tab[3][4]);
-
     this.ctx.beginPath();
     for(var i = 0; i < this.nbX; i++){
         for(var j = 0; j < this.nbY; j++){
-            this.ctx.strokeStyle = "#D3D3D3";
+            this.ctx.strokeStyle = "black";
             this.ctx.rect(i*this.dX, j*this.dY, this.dX, this.dY);
         }
     }
@@ -71,13 +69,13 @@ Grille.prototype.majDessin = function(objet, dx, dy){
     this.ctx.clearRect(objet.posX * this.dX - dx, objet.posY *this.dY - dy, this.dX, this.dY);
     objet.dessin(this.ctx, this.dX, this.dY);
 
-    console.log(this.tab[objet.posX][objet.posY]);
+    // modifie tab en fonction de l'exploration des cellules par les robots
     if (this.tab[objet.posX][objet.posY] == false){
         this.tab[objet.posX][objet.posY] = true;
         this.nbCur = this.nbCur + 1;
     }
-    console.log(this.nbCur);
 
+    // cas lorsque tous les cellules ont été parcourues
     if (this.nbCur >= this.nbC){
         this.ctx.clearRect(objet.posX * this.dX - dx, objet.posY *this.dY - dy, this.dX, this.dY);
         this.stopObjet();
