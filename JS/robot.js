@@ -21,16 +21,17 @@ Robot.prototype.dessin = function(ctx, dx, dy){
 Robot.prototype.perception = function(Grille){
 
     var tabMvt = [];
-    if (Grille.mvtAdmis(Robot, 0, Grille.dY)) {
+
+    if (Grille.mvtAdmis(this, 0, Grille.dY) == true) {
         tabMvt.push("Up");
     }
-    if (Grille.mvtAdmis(Robot, 0, -Grille.dY)) {
+    if (Grille.mvtAdmis(this, 0, -Grille.dY) == true) {
         tabMvt.push("Down");
     }
-    if (Grille.mvtAdmis(Robot, Grille.dX,0)) {
+    if (Grille.mvtAdmis(this, Grille.dX,0) == true) {
         tabMvt.push("Right");
     }
-    if (Grille.mvtAdmis(Robot, -Grille.dX,0)) {
+    if (Grille.mvtAdmis(this, -Grille.dX,0) == true) {
         tabMvt.push("Left");
     }
 
@@ -40,7 +41,7 @@ Robot.prototype.perception = function(Grille){
 Robot.prototype.reflexion   = function(tabMvt){
 
     var randInt = getRandomInt(0,tabMvt.lenght);
-    var act     = tabMvt(randInt);
+    var act     = tabMvt[randInt];
 
     return act;
 }
@@ -67,7 +68,7 @@ Robot.prototype.action = function(act,Grille){
 }
 
 /* positionne eveille à TRUE  et lance la boucle perception-reflexion-action*/
-Robot.prototype.reveille = function(){
+Robot.prototype.reveille = function(Grille){
     this.eveille = true;
 
     while(this.eveille){
