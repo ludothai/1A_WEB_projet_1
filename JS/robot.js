@@ -10,7 +10,6 @@ function Robot(x, y, vitesse, couleur) {
 }
 
 Robot.prototype.dessin = function(ctx, dx, dy){
-
     context.beginPath();
     context.fillStyle = this.couleur
     context.arc(this.posX + dx/2, this.posY + dy/2, dx/2, 0, 2 * Math.PI);

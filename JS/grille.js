@@ -31,7 +31,7 @@ Grille.prototype.dessinGrille = function(){
         }
     }
 
-    this.ctx.stroke();
+    this.ctx.stroke(); //dessine le rectangle
     this.ctx.closePath();
 }
 
@@ -67,7 +67,10 @@ Grille.prototype.mvtAdmis = function(objet, dx, dy){
 /* met à jour l'affichage d'un objet suite à son déplacement sur la grille
 de (dx, dy) */
 Grille.prototype.majDessin = function(objet, dx, dy){
-    
+    this.ctx.beginPath();
+    this.ctx.strokeStyle = "white";
+    this.ctx.rect(objet.posX + dx, objet.posY + dy, this.dX, this.dY);
+    this.ctx.stroke();
 }
 
 /* Annule le déplacement de tous les objets en les rendant endormis */
