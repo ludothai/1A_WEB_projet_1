@@ -17,7 +17,7 @@ function Grille(nbX, nbY, canvasID){
     for(i = 0; i < this.nbX; i++){
         this.tab.push([])
         for(j = 0; j < this.nbY; j++){
-            this.tab[i].push(false);
+            this.tab[i].push([false]);
         }
     }
 }
