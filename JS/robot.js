@@ -5,15 +5,16 @@ function Robot(x, y, vitesse, couleur) {
     this.posY    = y;
     this.temps   = vitesse;
     this.couleur = couleur;
-    this.timeID  = NULL;
+    this.timeID;
     this.eveille = false;
 }
 
 Robot.prototype.dessin = function(ctx, dx, dy){
-    context.beginPath();
-    context.fillStyle = this.couleur
-    context.arc(this.posX + dx/2, this.posY + dy/2, dx/2, 0, 2 * Math.PI);
-    context.fill()
+
+    ctx.beginPath();
+    ctx.fillStyle = this.couleur
+    ctx.arc(this.posX + dx/2, this.posY + dy/2, dx/2, 0, 2 * Math.PI);
+    ctx.fill()
 
 };
 
@@ -51,6 +52,7 @@ Robot.prototype.action = function(act,Grille){
 /* positionne eveille à TRUE  et lance la boucle perception-reflexion-action*/
 Robot.prototype.reveille = function(){
     this.eveille = true;
+    this.timeID  = 5;
 
     while(this.eveille){
         var tabMvt = this.perception(Grille);
